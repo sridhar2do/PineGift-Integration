@@ -10,10 +10,16 @@
 
 	$client = new SoapClient( $wsdl );
 
-	echo '<pre>';
+	$params = array( "getStatusOfGeneratedVouchersRequest" => $statusVoucher );
 
-	var_dump($client->__getFunctions());
-	echo "\n";
-	var_dump($client->__getTypes());
+	$response = [];
+
+	echo '<pre>';
+	echo '<h2>' . 'GetStatusOfGeneratedVouchers' . '</h2>';
+
+	// Get the response
+	$response = $client->GetStatusOfGeneratedVouchers( $params );
+
+	if( !empty($response) ) print_r($response);
 
 	echo '</pre>';
